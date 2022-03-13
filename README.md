@@ -1,3 +1,3 @@
 # android-java-training-samples
 
-Sample Apps Source code to demonstrate Android basic hands-on in Java
+Sample Apps (modules) to demonstrate basic Android hands-on in Java
