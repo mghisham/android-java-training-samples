@@ -43,12 +43,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 init();
                 if (null != movingBannerTask) {
-                    mTxtBanner.setSelected(true);
-                    mTxtBanner.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-                    mTxtBanner.setSingleLine(true);
                     movingBannerTask.execute();
-                    mBtnStart.setClickable(false);
-                    mBtnStart.setEnabled(false);
                 }
             }
         });
@@ -84,17 +79,11 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-//            TranslateAnimation animation = new TranslateAnimation(0.0f, 0.0f, 0.0f, 1500.0f); // new TranslateAnimation (float fromXDelta,float toXDelta, float fromYDelta, float toYDelta)
-//            animation.setDuration(1500); // animation duration
-//            animation.setRepeatCount(4); // animation repeat count
-//            animation.setRepeatMode(2); // repeat animation (left to right, right to left)
-//
-//            animation.setFillAfter(true);
-//            mTxtBanner.startAnimation(animation);
-
-            //ObjectAnimator buttonAnimator = ObjectAnimator.ofFloat(mTxtBanner, "alpha",0f);
-            // alpha fades in the button
-            //buttonAnimator.start();
+            mTxtBanner.setSelected(true);
+            mTxtBanner.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+            mTxtBanner.setSingleLine(true);
+            mBtnStart.setClickable(false);
+            mBtnStart.setEnabled(false);
         }
 
         @Override
