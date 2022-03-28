@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.app_07_clipboard.R;
 
 public class MainActivity extends AppCompatActivity {
 
