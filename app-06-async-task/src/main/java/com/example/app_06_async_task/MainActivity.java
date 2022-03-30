@@ -6,10 +6,12 @@ import android.animation.ObjectAnimator;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+        movingBannerTask = null;
         movingBannerTask = new MovingBannerTask(false);
     }
 
@@ -54,12 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 if (null != movingBannerTask) {
                     movingBannerTask.setFinish(true);
                 }
-                if (movingBannerTask.getStatus() != AsyncTask.Status.FINISHED) {
-                    movingBannerTask.cancel(true);
-                }
-                mTxtBanner.setSelected(false);
-                mBtnStart.setClickable(true);
-                mBtnStart.setEnabled(true);
             }
         });
     }
@@ -89,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             while (!isFinish) {
+                Log.w("suh", "flag is:" + isFinish);
             }
             return null;
         }
@@ -96,7 +94,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void unused) {
             super.onPostExecute(unused);
-            mTxtBanner.clearAnimation();
+            mTxtBanner.setSelected(false);
+            mBtnStart.setClickable(true);
+            mBtnStart.setEnabled(true);
         }
     }
 
