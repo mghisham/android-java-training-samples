@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.app_meeting_schedule">
-
+    package="com.example.app_meeting_info">
+    <queries>
+        <provider android:authorities="com.demo.meeting.provider" />
+    </queries>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,13 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MySamples">
 
-        <provider
-            android:name="com.example.app_meeting_schedule.MyContentProvider"
-            android:authorities="com.demo.meeting.provider"
-            android:enabled="true"
-            android:exported="true"></provider>
         <activity
-            android:name=".MeetingScheduleActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

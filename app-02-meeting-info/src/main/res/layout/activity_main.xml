@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#168BC34A"
-    tools:context=".MeetingScheduleActivity">
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -33,49 +33,16 @@
             android:textColor="@android:color/holo_green_dark"
             android:textSize="36sp"
             android:textStyle="bold" />
-
         <EditText
-            android:id="@+id/edtDate"
+            android:id="@+id/edtInfoDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="40dp"
             android:focusableInTouchMode="false"
-            android:hint="@string/hintText" />
+            android:hint="Pick a date to get meeting info" />
 
-        <EditText
-            android:id="@+id/edtTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="40dp"
-            android:focusableInTouchMode="false"
-            android:hint="Enter time" />
-
-        <EditText
-            android:id="@+id/edtAgenda"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="40dp"
-            android:hint="Meeting agenda" />
-
-        <Button
-            android:id="@+id/insertButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="#4CAF50"
-            android:text="@string/insertButtontext"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
 
         <Button
             android:id="@+id/loadButton"
@@ -86,12 +53,9 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:background="#4CAF50"
-            android:onClick="onClickShowDetails"
             android:text="@string/loadButtonText"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="#FFFFFF"
-            android:visibility="gone"
             android:textStyle="bold" />
 
         <TextView
@@ -104,9 +68,18 @@
             android:ems="10"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:visibility="gone"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
