@@ -1,4 +1,4 @@
-package com.example.myapps.constants;
+package com.example.myapps;
 
 public class Constants {
     public static final String[] TIME_OF_THE_DAY_LIST = new String[]{"Morning", "Afternoon", "Evening", "Night"};

@@ -1,9 +1,9 @@
-package com.example.myapps.repository;
+package com.example.myapps;
 
 import static android.os.Build.ID;
-import static com.example.myapps.constants.Constants.*;
-import static com.example.myapps.constants.Constants.DATABASE_NAME;
-import static com.example.myapps.constants.Constants.MEDICINE_TABLE_NAME;
+import static com.example.myapps.Constants.*;
+import static com.example.myapps.Constants.DATABASE_NAME;
+import static com.example.myapps.Constants.MEDICINE_TABLE_NAME;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -21,16 +21,17 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // TODO Auto-generated method stub
-        db.execSQL(
-                "create table " +  MEDICINE_TABLE_NAME +
-                        "(" + MEDICINE_COLUMN_ID + " integer primary key, " +  MEDICINE_COLUMN_MEDICINE_NAME + " text, " + MEDICINE_COLUMN_DATE  + " text, " + MEDICINE_COLUMN_TIME_OF_THE_DAY  + " text)"
-        );
+        String sqlQuery = "create table " + MEDICINE_TABLE_NAME +
+                "(" +
+                MEDICINE_COLUMN_ID + " integer primary key, " +
+                MEDICINE_COLUMN_MEDICINE_NAME + " text, " +
+                MEDICINE_COLUMN_DATE + " text, " +
+                MEDICINE_COLUMN_TIME_OF_THE_DAY + " text)";
+        db.execSQL(sqlQuery);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // TODO Auto-generated method stub
         db.execSQL("DROP TABLE IF EXISTS " +  MEDICINE_TABLE_NAME);
         onCreate(db);
     }
@@ -45,16 +46,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Cursor getData(int id) {
+    public Cursor getData() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from " +  MEDICINE_TABLE_NAME + " where " + MEDICINE_COLUMN_ID + " ="+id+"", null );
-        return res;
-    }
-
-    public int numberOfRows(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, MEDICINE_TABLE_NAME);
-        return numRows;
+        String sqlQuery = "select * from " + MEDICINE_TABLE_NAME;
+        Cursor cursor =  db.rawQuery(sqlQuery,null, null );
+        return cursor;
     }
 
     public boolean updateMedicine (Integer id, String medicineName, String date, int time) {
